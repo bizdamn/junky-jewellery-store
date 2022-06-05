@@ -32,7 +32,7 @@ import db from "../../../../utils/db";
 import PhysicalProduct from "../../../../models/PhysicalProduct";
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 
-export default function Product({product}) {
+export default function Product({ product }) {
 
     const router = useRouter();
     const { redirect } = router.query;
@@ -98,13 +98,13 @@ export default function Product({product}) {
     // const [sku, setSKU] = useState("");
     // const [barcode, setBarcode] = useState("");
 
-    const submitHandler = async ({ name, descriptionHtml,imageAlt,image, vendor, sku, barcode, inventory }) => {
+    const submitHandler = async ({ name, imageAlt, image, vendor, sku, barcode, inventory }) => {
         closeSnackbar();
         try {
-            
+
             setButtonProgressLoading(true);
             const { data } = await axios.post('/api/admin/products/edit/physical', {
-                productID:product._id,
+                productID: product._id,
                 storeID: adminStoreInfo._id,
                 name: name,
                 vendor: vendor,
@@ -112,7 +112,7 @@ export default function Product({product}) {
                 price: price,
                 listPrice: price.listPrice,
                 descriptionHtml: descriptionHtml,
-                images: product.images[0]? ([{ url: `${product.images[0]?.url}`, altText: imageAlt }]) : null,
+                images: product.images[0] ? ([{ url: `${product.images[0]?.url}`, altText: imageAlt }]) : null,
                 documents: document ? ([`/${document.name}`]) : null,
                 variants: [],
                 options: options,
@@ -193,7 +193,7 @@ export default function Product({product}) {
                         {/* Product Description */}
                         <Typography component="p">Description</Typography>
 
-
+                        {/* 
                         <Controller
                             name="descriptionHtml"
                             control={control}
@@ -220,10 +220,10 @@ export default function Product({product}) {
                                     {...field}
                                 ></TextareaAutosize>
                             )}
-                        ></Controller>
+                        ></Controller> */}
 
 
-                        {/* <TextEditor text={descriptionHtml} setText={setDescription} /> */}
+                        <TextEditor text={descriptionHtml} setText={setDescription} />
                     </Grid>
                     <Grid order={{ xs: 1, lg: 2 }} item component={Paper} lg={4} xs={12} sx={{ p: 3, m: 1 }}>
                         <Stack sx={{ mb: 3 }} spacing={2} direction="row">
@@ -261,32 +261,32 @@ export default function Product({product}) {
                         <Grid sx={{ width: '100%' }} container justifyContent='center'>
                             <UploadImage image={image} setImage={setImage} />
                             <Controller
-                            name="imageAlt"
-                            control={control}
-                            defaultValue={product?.images[0].altText}
-                            rules={{
-                                required: true,
-                                minLength: 2,
-                            }}
-                            render={({ field }) => (
-                                <TextField
-                                    variant="outlined"
-                                    fullWidth
-                                    id=""
-                                    label="Image Alt"
-                                    inputProps={{ type: 'text' }}
-                                    error={Boolean(errors.imageAlt)}
-                                    helperText={
-                                        errors.imageAlt
-                                            ? errors.imageAlt.type === 'minLength'
-                                                ? 'Image Alt can not be less than 3 charactes'
-                                                : 'Image Alt is required'
-                                            : ''
-                                    }
-                                    {...field}
-                                ></TextField>
-                            )}
-                        ></Controller>
+                                name="imageAlt"
+                                control={control}
+                                defaultValue={product?.images[0].altText}
+                                rules={{
+                                    required: true,
+                                    minLength: 2,
+                                }}
+                                render={({ field }) => (
+                                    <TextField
+                                        variant="outlined"
+                                        fullWidth
+                                        id=""
+                                        label="Image Alt"
+                                        inputProps={{ type: 'text' }}
+                                        error={Boolean(errors.imageAlt)}
+                                        helperText={
+                                            errors.imageAlt
+                                                ? errors.imageAlt.type === 'minLength'
+                                                    ? 'Image Alt can not be less than 3 charactes'
+                                                    : 'Image Alt is required'
+                                                : ''
+                                        }
+                                        {...field}
+                                    ></TextField>
+                                )}
+                            ></Controller>
                         </Grid>
                     </Grid>
 
@@ -420,8 +420,8 @@ export default function Product({product}) {
 
 export async function getServerSideProps(ctx) {
     const { params } = ctx;
-  const { id } = params;
-  console.log(id);
+    const { id } = params;
+    console.log(id);
     await db.connect();
     const product = await PhysicalProduct.find({ _id: id }).lean();
     await db.disconnect();
@@ -431,4 +431,4 @@ export async function getServerSideProps(ctx) {
             product: product.map(db.convertDocToObj)[0],
         },
     };
-  }
+}

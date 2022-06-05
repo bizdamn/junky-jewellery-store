@@ -47,5 +47,5 @@ const formats = [
 ]
 
 export default function TextEditor({text,setText}) {
-  return <QuillNoSSRWrapper value={text} onChange={()=>setText(text)} modules={modules} formats={formats} theme="snow" />
+  return <QuillNoSSRWrapper value={text} onChange={setText} modules={modules} formats={formats} theme="snow" />
 }

@@ -23,9 +23,17 @@ Email: ${req.body.email}
 Message: ${req.body.message}`,
         to: 'junkyjewellerystore@gmail.com',
         subject: `Message from ${req.body.name}`,
-        from: 'makemycommerce@gmail.com',
+        from: 'bizdamn@gmail.com',
       }
     )
+    console.log( {
+      text: `Name: ${req.body.name}
+Email: ${req.body.email}
+Message: ${req.body.message}`,
+      to: 'junkyjewellerystore@gmail.com',
+      subject: `Message from ${req.body.name}`,
+      from: 'bizdamn@gmail.com',
+    })
   }
   catch (e) {
     console.log(e)

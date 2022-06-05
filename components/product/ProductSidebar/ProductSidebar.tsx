@@ -60,10 +60,11 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }:{ produc
         selectedOptions={selectedOptions}
         setSelectedOptions={setSelectedOptions}
       />
-      <Text
+         <div dangerouslySetInnerHTML={{__html: product.descriptionHtml}} />
+      {/* <Text
         className="pb-4 break-words w-full max-w-xl"
         html={product.descriptionHtml || product.description}
-      />
+      /> */}
       <div className="flex flex-row justify-between items-center">
         <Rating value={4} />
         <div className="text-accent-6 pr-1 font-medium text-sm">36 reviews</div>
@@ -85,9 +86,21 @@ const ProductSidebar: FC<ProductSidebarProps> = ({ product, className }:{ produc
         )}
       </div>
       <div className="mt-6">
+
+      <p><strong>Why Choose Us ?</strong></p>
+      
+      <p>✔️Best Quality with Lowest Price Guaranteed</p>
+      <p>✔️ Order now and Get it in <strong>4-8 days</strong></p>
+      <p>✔️After Receiving parcel Please make Parcel<strong> Opening video </strong>without any cuts from starting to End, videos made after opening parcel and making it will not be accepted.</p>
+      
+      <br/>
+      <p><strong>In Case you receive Damaged Product please share parcel opening video with us. we will Exchange it with a new piece of Same Product or issue you a coupon code of same value which you can use in future purchases.</strong></p>
+        
+        {product.detailsHtml?( 
         <Collapse title="Details">
           {product.detailsHtml}
-        </Collapse>
+        </Collapse>):null}
+       
         {product.documents?.length > 0 ? (
 
           <Collapse title="Documents">

@@ -67,9 +67,9 @@ const Navbar: FC<NavbarProps> = ({ links }) => {
               {/* <Link href="/search">
               <a className={s.link}>All</a>
             </Link> */}
-              <Link href="/categories">
+              {/* <Link href="/categories">
                 <a className={s.link}>Shop All</a>
-              </Link>
+              </Link> */}
               {/* <Badge badgeContent={'Sale'} color="primary">
                 <Link href="/sale">
                   <a className={s.link}>Sale</a>

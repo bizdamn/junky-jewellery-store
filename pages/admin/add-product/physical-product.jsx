@@ -94,7 +94,7 @@ export default function Product() {
     // const [sku, setSKU] = useState("");
     // const [barcode, setBarcode] = useState("");
 
-    const submitHandler = async ({ name, descriptionHtml, imageAlt, vendor, sku, barcode, inventory }) => {
+    const submitHandler = async ({ name, imageAlt, vendor, sku, barcode, inventory }) => {
 
         closeSnackbar();
         try {
@@ -197,7 +197,7 @@ export default function Product() {
                         <Typography component="p">Description</Typography>
 
 
-                        <Controller
+                        {/* <Controller
                             name="descriptionHtml"
                             control={control}
                             defaultValue=""
@@ -223,10 +223,10 @@ export default function Product() {
                                     {...field}
                                 ></TextareaAutosize>
                             )}
-                        ></Controller>
+                        ></Controller> */}
 
 
-                        {/* <TextEditor text={descriptionHtml} setText={setDescription} /> */}
+                        <TextEditor text={descriptionHtml} setText={setDescription} />
                     </Grid>
                     <Grid order={{ xs: 1, lg: 2 }} item component={Paper} lg={4} xs={12} sx={{ p: 3, m: 1 }}>
                         <Stack sx={{ mb: 3 }} spacing={2} direction="row">

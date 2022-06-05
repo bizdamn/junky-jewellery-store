@@ -13,8 +13,12 @@ export default function About() {
             {storeInfo ? (
                 <>
                     <Grid container spacing={2}>
+                        <Grid style={{ padding: '3rem' }} item xs={12}>
+                            <Text style={{ textAlign: 'center' }} variant="pageHeading">About Us</Text>
+                            <div dangerouslySetInnerHTML={{__html: storeInfo?.about}} />
+                        </Grid>
                         <Grid item md={4} sm={12}>
-                            <Image src={'/logo.svg'? '/logo.svg':'/admin/images/logo.svg'} height={400} width={400} alt='Company Logo' />
+                            <Image src={'/logo.svg' ? '/logo.svg' : '/admin/images/logo.svg'} height={400} width={400} alt='Company Logo' />
                         </Grid>
                         <Grid item md={7} sm={12}>
                             <Text variant="pageHeading"> Company Highlights</Text>
@@ -26,7 +30,7 @@ export default function About() {
                                 </Tr>
                                 <Tr>
                                     <Td>Company CEO</Td>
-                                    <Td>{storeInfo?.name}</Td>
+                                    <Td>{storeInfo?.ceo}</Td>
                                 </Tr>
                                 <Tr>
                                     <Td>Address</Td>
@@ -35,7 +39,7 @@ export default function About() {
 
                                 <Tr>
                                     <Td>Year of Establishment</Td>
-                                    <Td>2020</Td>
+                                    <Td>2018</Td>
                                 </Tr>
                                 <Tr>
                                     <Td>Email</Td>
@@ -48,10 +52,7 @@ export default function About() {
 
                             </Table>
                         </Grid>
-                        <Grid style={{ textAlign: 'center', padding: '3rem' }} item xs={12}>
-                            <Text variant="pageHeading">About Us</Text>
-                            <p>{storeInfo?.bio}</p>
-                        </Grid>
+
                     </Grid>
 
 

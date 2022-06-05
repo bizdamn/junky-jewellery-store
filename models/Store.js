@@ -17,6 +17,8 @@ const storeSchema = new mongoose.Schema(
     // gst: { type: String, required: false },
     // logo: { type: String, required: false },
     bio: { type: String, required: false },
+    ceo: { type: String, required: false },
+    about: { type: String, required: false },
     // languages: { type: Array, required: false, default: ['eng'] },
     categories: { type: Array, required: false ,default:[]},
     // taxes: { type: Object, required: false },
