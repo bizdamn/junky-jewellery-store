@@ -177,8 +177,8 @@ const Layout: FC<Props> = ({
             </Button>
           }
         />
-            <a href={`https://api.whatsapp.com/send?phone=${storeInfo?.phone}&text=Hello`} className="float" target="_blank">
-  <WhatsAppIcon sx={{fontSize:'2.6rem'}} />
+            <a href={`https://api.whatsapp.com/send?phone=+91${storeInfo?.phone}&text=Hello`} className="float" target="_blank">
+  <WhatsAppIcon sx={{fontSize:'2.6rem',mt:1}} />
 </a>
       </div>
   

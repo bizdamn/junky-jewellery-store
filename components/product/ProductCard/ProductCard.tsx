@@ -129,7 +129,7 @@ const ProductCard: FC<Props> = ({
                 </div>
               )}
             </div>
-            <ProductTag  name={product.name}  price={`${product.price?.value}`} />
+            {/* <ProductTag  name={product.name}  price={`${product.price?.value}`} /> */}
             <CustomProductTag  name={product.name}  price={`${product.price?.value}`} comparePrice={`${product.price?.comparePrice}`}/>
 
           </>
